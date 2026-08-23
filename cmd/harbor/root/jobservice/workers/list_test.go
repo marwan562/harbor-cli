@@ -76,7 +76,7 @@ func executeListCommand(t *testing.T, args ...string) (string, error) {
 
 	w.Close()
 	os.Stdout = oldStdout
-	io.Copy(&outBuf, r)
+	_, _ = io.Copy(&outBuf, r)
 
 	return outBuf.String(), cmdErr
 }

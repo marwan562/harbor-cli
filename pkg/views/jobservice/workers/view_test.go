@@ -37,7 +37,7 @@ func captureStdout(t *testing.T, fn func()) string {
 	fn()
 	w.Close()
 	os.Stdout = oldStdout
-	io.Copy(&buf, r)
+	_, _ = io.Copy(&buf, r)
 
 	return buf.String()
 }
